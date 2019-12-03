@@ -1,0 +1,20 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+pylint-django = "*"
+django-extensions = "*"
+pytest-django = "*"
+djangorestframework = "*"
+psycopg2 = "*"
+django-replicated = "*"
+djangorestframework-csv = "*"
+django = "~=2.2"
+
+[requires]
+python_version = "3.7"

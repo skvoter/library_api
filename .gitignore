@@ -1,0 +1,16 @@
+# In production we don't want to share .env with all the secrets, you know
+# .env
+.vscode
+*.log
+*.pot
+*.py[cod]
+__pycache__/
+
+htmlcov/
+
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+
+celerybeat-schedule
+.coverage
