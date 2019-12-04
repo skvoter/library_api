@@ -21,6 +21,6 @@ class Book(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        if not self.reader:
+        if self.reader:
             self.available = False
         super().save(*args, **kwargs)
