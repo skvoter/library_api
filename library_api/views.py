@@ -34,16 +34,22 @@ class GetCSV(APIView):
 
     renderer_classes = (r.CSVRenderer, ) + tuple(api_settings.DEFAULT_RENDERER_CLASSES)
     queryset = None
+    name = "file"
+
     def get(self, request):
-        return Response(list(self.queryset.all()))
+        response = Response(list(self.queryset.all()))
+        response['Content-Disposition'] = 'attachment; filename={}.csv'.format(self.name)
+        return response
 
 # Readers CSV export
 class GetReadersCSV(GetCSV):
-
+    renderer_classes = GetCSV.renderer_classes
     queryset = Reader.objects.annotate(Count("books")).values()
-
+    name = "library_readers"
 
 # Books CSV export
 class GetBooksCSV(GetCSV):
 
+    renderer_classes = GetCSV.renderer_classes
     queryset = Book.objects.values()
+    name = "library_books"
