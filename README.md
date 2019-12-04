@@ -11,6 +11,8 @@ To run service:
 
 `docker-compose up`
 
+> All the variables are passed to docker-compose file and to the Dockerfile from the `.env` . Usually we dont wanna share files like this through GitHub 
+
 > Bitnami postgresql images are used since they support replication out of the box and are actively supported
 
 Also to support replication inside of the django i've used yandex's [django_replicated](https://github.com/yandex/django_replicated/) module since it's working and fully covered with tests. It provides middleware and decorators to ensure that all the data retrieval goes from the replica database and writings are happening at the master one. This feature is not covered by tests as the module is already covered by them.
