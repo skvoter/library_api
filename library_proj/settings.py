@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_extensions',
     'library_api',
     'django_replicated'
 ]
@@ -96,8 +97,8 @@ DATABASES = {
         'NAME': os.getenv("POSTGRESQL_DATABASE"),
         'HOST': 'postgresql-slave',
         'PORT': 5432,
-        'USER': os.getenv("POSTGRESQL_REPLICATION_USER"),
-        'PASSWORD': os.getenv("POSTGRESQL_REPLICATION_PASSWORD"),
+        'USER': os.getenv("POSTGRESQL_USERNAME"),
+        'PASSWORD': os.getenv("POSTGRESQL_PASSWORD"),
     }
 }
 

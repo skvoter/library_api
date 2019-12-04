@@ -15,9 +15,10 @@ class Book(models.Model):
     reader = models.ForeignKey(
         Reader,
         on_delete=models.PROTECT,
-        related_name="books"
+        related_name="books",
+        blank=True,
+        null=True,
     )
-
 
     def save(self, *args, **kwargs):
         if not self.reader:
