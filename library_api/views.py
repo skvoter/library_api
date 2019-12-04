@@ -44,6 +44,7 @@ class GetCSV(APIView):
 
 # Readers CSV export
 class GetReadersCSV(GetCSV):
+    
     renderer_classes = GetCSV.renderer_classes
     queryset = Reader.objects.annotate(Count("books")).values()
     name = "library_readers"
